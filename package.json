@@ -1,0 +1,24 @@
+{
+  "name": "docker-intranet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jonathan-Assis/docker-intranet.git"
+  },
+  "author": "Jonathan Gabriel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jonathan-Assis/docker-intranet/issues"
+  },
+  "homepage": "https://github.com/Jonathan-Assis/docker-intranet#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^2.0.20"
+  }
+}
