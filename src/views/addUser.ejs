@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>Adicionar Usuário</title>
+</head>
+<body>
+    <%- include('nav') -%>
+        <div class="modal">
+                <form class="forms" action="added" method="post">
+                    Nome do usuário: <input class="inputBox" type="text" name=nome value="Nome completo do usuário..." /><br/>
+                    Departamento: <input class="inputBox" type="text" name=departamento value="Departamento atual..." /><br/>
+                    Cargo: <input class="inputBox" type="text" name=cargo value="Cargo atual..." /><br/>
+                    Endereço <input class="inputBox" type="text" name=endereco value="Cidade, UF, Rua...." /><br/>
+                    <input class="submitButton" type="submit" value="Confirmar" />
+                </form>
+        </div>
+    </body>
+</html>
