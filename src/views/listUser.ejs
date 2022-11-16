@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/styles.css"" />
+    <title>Lista de Usuários</title>
+</head>
+<body>
+    <%- include('nav') -%>
+    <ul>
+    <% for(var i=0; i< list_User.length; ++i) { %>  
+    <div class="card">     
+        <li>
+            <span class="descritor">Nome:</span> <%=list_User[i].nome %><br/>
+            <span class="descritor">Departamento:</span> <%=list_User[i].departamento %><br/>
+            <span class="descritor">Cargo:</span> <%=list_User[i].cargo %><br/>
+            <span class="descritor">Endereço:</span> <%=list_User[i].endereco %><br/>
+        </li> 
+    </div>
+    <% } %>
+    </ul>
+</body>
+</html>
