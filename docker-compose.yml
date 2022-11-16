@@ -1,10 +1,33 @@
 version: "3"
 
-services:
-  app:
-    build: .
-    command: npm start
+
+services: # Services that will be create
+  
+  db:  # Database service
+    container_name: 'intranet' # container name
+    image: mysql  # image that will be used on database
+    command: --default-authentication-plugin=mysql_native_password # Using generic password
+    restart: always
+    expose:
+      - "3306"  # port that used on database
     ports:
-      - "3000:3000"
+      - "3306:3306" # port listening and used
+    environment: 
+      - MYSQL_DATABASE=intranet # 'intranet' database was created and now set
+      - MYSQL_ROOT_PASSWORD=root  # Use root and pass root
+      - MYSQL_ROOT_HOST=%
+    healthcheck:  # healthcheck to test and verify connection is right
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+  app: # Web Application service
+    depends_on: # The web application first needs the database is enable
+      db: # select the service database
+        condition: service_healthy
+    build: .  # build the current web application
+    command: npm start  # run the web application
+    ports:
+      - "5000:5000" # using the port 5000 to acess the web application
     volumes:
-      - ./docker-intranet
+      - .:/usr/app  # create a volume
+
